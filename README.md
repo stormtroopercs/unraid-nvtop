@@ -14,9 +14,7 @@ from a terminal:
 - Runtime libs:  `/usr/local/emhttp/plugins/nvtop/usr/lib/`
 - Runner:        `/usr/local/emhttp/plugins/nvtop/scripts/nvtop-runner`
 - PATH symlink:  `/usr/local/bin/nvtop`
-- Web page:      Tools → nvtop
 
 ## Notes
 - The nvtop binary and its ncurses libs are **bundled in the .txz** — no network
   needed at install or boot.
-- To update nvtop, install a newer plugin version (bumps the bundled binary).
