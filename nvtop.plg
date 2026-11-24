@@ -1,0 +1,49 @@
+<?xml version='1.0' standalone='yes'?>
+<!DOCTYPE PLUGIN [
+<!ENTITY name      "nvtop">
+<!ENTITY author    "stormtroopercs">
+<!ENTITY version   "1.0.0">
+<!ENTITY launch    "Tools/nvtop">
+<!ENTITY pluginURL "https://raw.githubusercontent.com/stormtroopercs/unraid-nvtop/main/nvtop.plg">
+<!ENTITY txzURL    "https://github.com/stormtroopercs/unraid-nvtop/releases/download/&version;/nvtop-&version;-x86_64-1.txz">
+<!ENTITY plgPATH   "/boot/config/plugins/nvtop">
+<!ENTITY plgNAME   "nvtop-&version;-x86_64-1">
+]>
+<PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" min="6.12.0">
+
+<CHANGES>
+###1.0.0
+- Initial release: GPU/CPU monitoring TUI (Syllo/nvtop 3.4.0). Bundled binary + ncurses libs; no network at install/boot.
+</CHANGES>
+
+<!-- plugin package: downloaded to flash, then installed with upgradepkg -->
+<FILE Name="&plgPATH;/&plgNAME;.txz">
+<URL>&txzURL;</URL>
+</FILE>
+
+<!-- install: extract the package, wire up the nvtop command -->
+<FILE Run="/bin/bash" Method="install">
+<INLINE>
+set -u
+PKG=&plgPATH;/&plgNAME;.txz
+[ -f "$PKG" ] || { echo "nvtop: missing package $PKG"; exit 1; }
+upgradepkg --install-new "$PKG"
+chmod 755 /usr/local/emhttp/plugins/nvtop/scripts/nvtop-runner 2>/dev/null
+mkdir -p /usr/local/bin
+ln -sf /usr/local/emhttp/plugins/nvtop/scripts/nvtop-runner /usr/local/bin/nvtop
+echo "nvtop installed. Run it in a terminal (SSH or Settings > Terminal): nvtop"
+</INLINE>
+</FILE>
+
+<!-- remove -->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+rm -f /usr/local/bin/nvtop
+removepkg &plgNAME;
+rm -rf /usr/local/emhttp/plugins/nvtop
+rm -f &plgPATH;/&plgNAME;.txz
+echo "nvtop removed."
+</INLINE>
+</FILE>
+
+</PLUGIN>
