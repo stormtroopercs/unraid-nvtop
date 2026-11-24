@@ -2,16 +2,17 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "nvtop">
 <!ENTITY author    "stormtroopercs">
-<!ENTITY version   "1.0.1">
-<!ENTITY launch    "Tools/nvtop">
+<!ENTITY version   "1.0.2">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/stormtroopercs/unraid-nvtop/main/nvtop.plg">
 <!ENTITY txzURL    "https://github.com/stormtroopercs/unraid-nvtop/releases/download/&version;/nvtop-&version;-x86_64-1.txz">
 <!ENTITY plgPATH   "/boot/config/plugins/nvtop">
 <!ENTITY plgNAME   "nvtop-&version;-x86_64-1">
 ]>
-<PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" min="6.12.0">
+<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" min="6.12.0">
 
 <CHANGES>
+###1.0.2
+- Remove the Tools web page: nvtop is terminal-only and the usage info already lives in the plugin description.
 ###1.0.1
 - Fix web GUI page: add the required --- header/body separator and use a valid Type (php). Resolves "Invalid .page format: plugins/nvtop/nvtop.page".
 ###1.0.0
