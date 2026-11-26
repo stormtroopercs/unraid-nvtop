@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "nvtop">
 <!ENTITY author    "stormtroopercs">
-<!ENTITY version   "1.0.5">
+<!ENTITY version   "1.0.6">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/stormtroopercs/unraid-nvtop/main/nvtop.plg">
 <!ENTITY txzURL    "https://github.com/stormtroopercs/unraid-nvtop/releases/download/&version;/nvtop-&version;-x86_64-1.txz">
 <!ENTITY plgPATH   "/boot/config/plugins/nvtop">
@@ -11,6 +11,8 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" min="6.12.0">
 
 <CHANGES>
+###1.0.6
+- Ship the package as root:root with standard 755/644 modes, like a default Unraid install. Versions 1.0.0-1.0.5 embedded the build user's uid/gid in the package, which on some hosts corrupted ownership of / and disabled SSH publickey auth.
 ###1.0.5
 - Add the NVTOP title to the plugin description.
 ###1.0.4
