@@ -3,4 +3,4 @@ This plugin installs nvtop, a terminal-based GPU monitoring tool based on [Syllo
 - SSH: connect with `ssh user@server`, then type `nvtop`
 - Web GUI: open ***Settings → Terminal*** and type `nvtop`
 
-It shows live GPU utilization, memory, temperature, and power for each GPU, with per-process usage.
+Live GPU utilization, memory, temperature, and power for each GPU, with per-process usage.
