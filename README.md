@@ -1,20 +1,6 @@
-# nvtop (Unraid plugin)
+This plugin installs nvtop, a terminal-based GPU monitoring tool based on [Syllo/nvtop](https://github.com/Syllo/nvtop). Run it from a terminal on the server:
 
-GPU/CPU monitoring TUI based on [Syllo/nvtop](https://github.com/Syllo/nvtop).
+- SSH: connect with `ssh user@server`, then type `nvtop`
+- Web GUI: open ***Settings → Terminal*** and type `nvtop`
 
-## Usage
-The plugin puts the `nvtop` command on `PATH`. nvtop is a terminal UI, so run it
-from a terminal:
-
-- SSH: `ssh user@server` then `nvtop`
-- Web GUI: Settings → Terminal, then `nvtop`
-
-## Files
-- Binary:        `/usr/local/emhttp/plugins/nvtop/bin/nvtop`
-- Runtime libs:  `/usr/local/emhttp/plugins/nvtop/usr/lib/`
-- Runner:        `/usr/local/emhttp/plugins/nvtop/scripts/nvtop-runner`
-- PATH symlink:  `/usr/local/bin/nvtop`
-
-## Notes
-- The nvtop binary and its ncurses libs are **bundled in the .txz** — no network
-  needed at install or boot.
+It shows live GPU utilization, memory, temperature, and power for each GPU, with per-process usage.
